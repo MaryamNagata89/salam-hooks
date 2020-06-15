@@ -1,19 +1,20 @@
 import React, { useReducer } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EventForm from './EventForm';
+import AppContext from '../contexts/AppContext';
 import Events from './Events';
 import reducer from '../reducers';
-//import Event from './Event';
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, []);
 
   return (
-    <>
-      <EventForm state={state} dispatch={dispatch} />
-      <Events state={state} dispatch={dispatch} />
-      <div className="container-fluid"></div>
-    </>
+    <AppContext.Provider>
+      <div className="container-fluid">
+        <EventForm state={state} dispatch={dispatch} />
+        <Events state={state} dispatch={dispatch} />
+      </div>
+    </AppContext.Provider>
   );
 };
 
