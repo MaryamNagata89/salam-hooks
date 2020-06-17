@@ -4,11 +4,12 @@ const operationLogs = (state = [], action) => {
     case ADD_OPERATION_LOG:
       const operationLog = {
         description: action.description,
-        operateAt: action.operatedAt,
+        operatedAt: action.operatedAt,
       };
       return [operationLog, ...state];
     case DELETE_ALL_OPERATION_LOGS:
       return [];
+
     default:
       return state;
   }
